@@ -689,6 +689,8 @@ mha_fwd(at::Tensor &q,   // (b, s_q, h, d) or (total_q, h, d) if there is cu_seq
     TORCH_CHECK(k.stride(-1) == 1, "Input tensor must have contiguous last dimension");
     TORCH_CHECK(v.stride(-1) == 1, "Input tensor must have contiguous last dimension");
 
+    std::cout << "FL test ===> hello" << std::endl;
+
     at::Tensor page_table;
     const bool paged_KV = page_table_.has_value();
     if (paged_KV) {
